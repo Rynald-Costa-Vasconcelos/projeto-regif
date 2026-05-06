@@ -1,0 +1,15 @@
+version: "3.9"
+
+services:
+  postgres:
+    image: postgres:16
+    container_name: regif-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: regif
+      POSTGRES_USER: regif
+      POSTGRES_PASSWORD: regif123
+    volumes:
+      - ./infra/postgres/data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"

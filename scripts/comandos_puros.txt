@@ -1,0 +1,18 @@
+Build do FRONT 
+cd /opt/regif/frontend
+npm install
+npm run build
+
+Validar NGINX
+nginx -t
+systemctl reload nginx
+
+
+Build do BACK
+cd /opt/regif/backend
+npm install
+npm run build
+
+Reiniciar API
+pm2 restart regif-api
+pm2 status

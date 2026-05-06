@@ -1,0 +1,26 @@
+/opt/regif/scripts/deploy_front.sh
+# ou, se você usa git no servidor:
+# /opt/regif/scripts/deploy_front.sh --pull
+
+/opt/regif/scripts/deploy_back.sh
+# com migrations:
+# /opt/regif/scripts/deploy_back.sh --migrate
+# com git pull:
+# /opt/regif/scripts/deploy_back.sh --pull
+# com ambos:
+# /opt/regif/scripts/deploy_back.sh --pull --migrate
+
+/opt/regif/scripts/deploy_all.sh
+# com git pull:
+# /opt/regif/scripts/deploy_all.sh --pull
+# com migrations:
+# /opt/regif/scripts/deploy_all.sh --migrate
+# com ambos:
+# /opt/regif/scripts/deploy_all.sh --pull --migrate
+
+Front:
+curl -I https://regif.com.br
+
+Back:
+curl -I https://regif.com.br/api/health
+pm2 status

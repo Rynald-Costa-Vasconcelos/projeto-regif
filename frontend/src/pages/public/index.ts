@@ -1,0 +1,12 @@
+export { Home } from "./Home";
+export { default as NewsArchive } from "./NewsArchive";
+export { default as NewsPost } from "./NewsPost";
+export { default as DocumentsArchive } from "./DocumentsArchive";
+export { ShopLayout } from "./ShopLayout";
+export { ShopHome } from "./ShopHome";
+export { ShopCategoryPage } from "./ShopCategoryPage";
+export { ShopHelpPage } from "./ShopHelpPage";
+export { ShopProductPage } from "./ShopProductPage";
+export { ShopCheckoutPage } from "./ShopCheckoutPage";
+export { ShopGuestOrdersPage } from "./ShopGuestOrdersPage";
+export { default as QuemSomos } from "./QuemSomos";

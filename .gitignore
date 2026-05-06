@@ -1,0 +1,46 @@
+# Node
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Builds
+dist/
+build/
+coverage/
+.vite/
+.cache/
+*.tsbuildinfo
+
+# Env / secrets
+.env
+.env.*
+!.env.example
+
+# OS / Editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Logs
+logs/
+*.log
+
+# Prisma
+prisma/dev.db
+prisma/dev.db-journal
+
+# Uploads / storage (mude se você quiser versionar assets)
+backend/uploads/
+uploads/
+
+# PM2
+pids/
+*.pid
+
+# Docker volumes / dados locais do Postgres
+**/postgres_data/
+**/pgdata/
+infra/postgres/data/
