@@ -5,34 +5,34 @@ Projeto fullstack em TypeScript com frontend React (Vite) e backend Express + Pr
 ## Objetivo
 
 O sistema atende o site institucional da REGIF, incluindo:
-- area publica (noticias e documentos),
-- painel administrativo (usuarios, papeis, conteudos),
-- fluxo de setup inicial para criacao do primeiro admin.
+- **Área pública** (notícias e documentos).
+- **Painel administrativo** (usuários, papéis, conteúdos).
+- **Fluxo de setup inicial** para criação do primeiro admin.
 
 ## Stack
 
-- Frontend: React, Vite, TypeScript, React Router, Axios, Tailwind.
-- Backend: Node.js, Express, TypeScript, Prisma, PostgreSQL, JWT.
-- Infra local: Docker Compose para PostgreSQL.
+- **Frontend**: React, Vite, TypeScript, React Router, Axios, Tailwind.
+- **Backend**: Node.js, Express, TypeScript, Prisma, PostgreSQL, JWT.
+- **Infra local**: Docker Compose para PostgreSQL.
 
 ## Estrutura
 
-- `frontend/`: aplicacao web.
-- `backend/`: API REST e regras de negocio.
+- `frontend/`: aplicação web.
+- `backend/`: API REST e regras de negócio.
 - `infra/`: artefatos de apoio (ex.: dados persistidos do banco local).
 - `docker-compose.yml`: sobe o PostgreSQL local.
 
-## Convencoes de arquitetura
+## Convenções de arquitetura
 
-- Backend:
-  - contrato de erro padrao: `{ code, message, details }`;
-  - middleware global de erro em `backend/src/core/http/error-middleware.ts`;
-  - helpers HTTP/validacao em `backend/src/core/http`;
-  - modulo `documents` dividido em `query`, `mutation` e `categories` services.
-- Frontend:
-  - sessao/autorizacao em `frontend/src/shared/auth/session.ts`;
-  - guards de rota em `frontend/src/app/routes/guards.tsx`;
-  - contratos de API compartilhados em `frontend/src/shared/api/contracts.ts`.
+- **Backend**:
+  - Contrato de erro padrão: `{ code, message, details }`.
+  - Middleware global de erro em `backend/src/core/http/error-middleware.ts`.
+  - Helpers HTTP/validação em `backend/src/core/http`.
+  - Módulo `documents` dividido em `query`, `mutation` e `categories` services.
+- **Frontend**:
+  - Sessão/autorização em `frontend/src/shared/auth/session.ts`.
+  - Guards de rota em `frontend/src/app/routes/guards.tsx`.
+  - Contratos de API compartilhados em `frontend/src/shared/api/contracts.ts`.
 
 ## Desenvolvimento local (Windows / PowerShell)
 
@@ -44,7 +44,7 @@ Na raiz do projeto:
 docker compose up -d
 ```
 
-Se voce estiver sem Docker, use PostgreSQL local e ajuste apenas a `DATABASE_URL` no `backend/.env`.
+Se você estiver sem Docker, use PostgreSQL local e ajuste apenas a `DATABASE_URL` no `backend/.env`.
 
 ### 2) Backend
 
@@ -54,9 +54,7 @@ npm install
 copy .env.example .env
 ```
 
-Edite o `.env` se necessario.
-
-Depois execute:
+Edite o `.env` se necessário. Depois execute:
 
 ```powershell
 npm run prisma:generate
@@ -86,13 +84,13 @@ App local: `http://127.0.0.1:5173`
 1. Rode os seeds no backend (`npm run db:seed:all`).
 2. Abra `http://127.0.0.1:5173/setup`.
 3. Use o `SETUP_TOKEN` definido no `.env` do backend.
-4. Crie o primeiro usuario admin.
+4. Crie o primeiro usuário admin.
 
 ## Preparado para deploy futuro
 
-A configuracao local separa claramente:
-- URL de API por variavel de ambiente (`VITE_API_URL`),
-- segredos e conexoes por `.env`,
-- servico de banco isolado por Docker.
+A configuração local separa claramente:
+- URL de API por variável de ambiente (`VITE_API_URL`).
+- Segredos e conexões por `.env`.
+- Serviço de banco isolado por Docker.
 
-Com isso, para publicar depois em VPS, basta trocar variaveis e camada de proxy sem refatorar o codigo principal.
+Com isso, para publicar depois em uma VPS, basta trocar variáveis e a camada de proxy sem refatorar o código principal.
